@@ -137,8 +137,8 @@ function getName(obj) {
  * the returned value should be: 2.
 */
 function appleIndex(arr) {
-  for(let i = 0; i < arr.length; i++) {
-    if (arr[i] === 'apple') return i;
+  for (let i = 0; i < arr.length; i++) {
+    if(arr[i] === 'apple') return i;
   }
 }
 
@@ -158,11 +158,11 @@ function appleIndex(arr) {
  * the returned value should be: [ false, true, false, false, true, false ].
 */
 function isItAnApple(arr) {
-  const isAppleArr = [];
+  const isApple = [];
   for (let i = 0; i < arr.length; i++) {
-    isAppleArr.push((arr[i] === 'apple'));
+    isApple.push(arr[i] === 'apple');
   }
-  return isAppleArr;
+  return isApple;
 }
 
 
@@ -248,7 +248,7 @@ function getLastCarInfo(inv) {
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
 function getModelYears(inv) {
-  const carYears= [];
+  const carYears = [];
   for (let i = 0; i < inv.length; i++) {
     carYears.push(inv[i].car_year);
   }
@@ -270,12 +270,14 @@ function getModelYears(inv) {
  * it will return `This is a Lincoln Navigator`.
 */
 function getCarInfoById(arr, id) {
-  // W/O loop
+  // Without loop
+
   // return `This is a ${arr[id - 1].car_make} ${arr[id - 1].car_model}`;
 
   // With loop
+
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].id === id) return `This is a ${arr[i].car_make} ${arr[i].car_model}`;
+    if(arr[i].id === id) return `This is a ${arr[i].car_make} ${arr[i].car_model}`;
   }
 }
 
@@ -294,11 +296,13 @@ function getCarInfoById(arr, id) {
  * in the same order as they appear in the original inventory.
 */
 function getOlderCars(arr, year) {
-  const oldCars = [];
+  const olderCars = [];
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i].car_year <= year) oldCars.push(arr[i]);
+    if(arr[i].car_year <= year) {
+      olderCars.push(arr[i]);
+    }
   }
-  return oldCars;
+  return olderCars;
 }
 
 /**
@@ -317,10 +321,8 @@ function getOlderCars(arr, year) {
 function getGermanCars(arr) {
   const germanCars = [];
   for (let i = 0; i < arr.length; i++) {
-    let man = arr[i].car_make;
-    if (man === `Audi` || man === `Mercedes-Benz` || man === `Volkswagen` || man === `BMW`) {
-      germanCars.push(arr[i]);
-    }
+    const car = arr[i].car_make;
+    if (car === `Audi` || car === `Mercedes-Benz` || car === `Volkswagen` || car === `BMW`) germanCars.push(arr[i]);
   }
   return germanCars;
 }
@@ -342,8 +344,7 @@ function carMaker(odo) {
   return {
     odometer: odo,
     drive(miles) {
-      this.odometer += miles;
-      return this.odometer;
+       return this.odometer += miles;
     }
   }
 }
